@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class post4 {
 
-    // Node class for Doubly Linked List
     static class Node {
         int data;
         Node prev;
@@ -20,7 +19,6 @@ public class post4 {
     Node head = null;
     Node tail = null;
 
-    // Insert at end (used to build list)
     void insertAtEnd(int data) {
         Node newNode = new Node(data);
         if (head == null) {
@@ -32,7 +30,6 @@ public class post4 {
         }
     }
 
-    // Traverse from front to end
     void traverseFromFront() {
         if (head == null) {
             System.out.println("List is empty.");
@@ -47,7 +44,6 @@ public class post4 {
         System.out.println();
     }
 
-    // Traverse from end to front
     void traverseFromEnd() {
         if (tail == null) {
             System.out.println("List is empty.");
@@ -62,7 +58,6 @@ public class post4 {
         System.out.println();
     }
 
-    // Insert a node at middle position (middle = size/2, rounded down)
     void insertAtMiddle(int data) {
         if (head == null) {
             insertAtEnd(data);
@@ -72,31 +67,27 @@ public class post4 {
 
         Node newNode = new Node(data);
 
-        // Find middle index
         int size = getSize();
         int mid = size / 2;
 
-        // Traverse to middle node
         Node temp = head;
         for (int i = 0; i < mid; i++) {
             temp = temp.next;
         }
 
-        // Insert newNode before temp
         newNode.prev = temp.prev;
         newNode.next = temp;
 
         if (temp.prev != null) {
             temp.prev.next = newNode;
         } else {
-            head = newNode;  // new node is new head if inserted at front
+            head = newNode;  
         }
         temp.prev = newNode;
 
         System.out.println("Inserted " + data + " at middle position " + mid);
     }
 
-    // Delete node at middle position (middle = size/2, rounded down)
     void deleteAtMiddle() {
         if (head == null) {
             System.out.println("List is empty, nothing to delete.");
@@ -111,24 +102,20 @@ public class post4 {
             temp = temp.next;
         }
 
-        // Delete temp node
         if (temp.prev != null) {
             temp.prev.next = temp.next;
         } else {
-            // deleting head
             head = temp.next;
         }
         if (temp.next != null) {
             temp.next.prev = temp.prev;
         } else {
-            // deleting tail
             tail = temp.prev;
         }
 
         System.out.println("Deleted node with value " + temp.data + " at middle position " + mid);
     }
 
-    // Get current size of DLL
     int getSize() {
         int count = 0;
         Node temp = head;
@@ -139,7 +126,6 @@ public class post4 {
         return count;
     }
 
-    // Menu driven program
     public static void main(String[] args) {
         post4 dll = new post4();
         Scanner sc = new Scanner(System.in);
