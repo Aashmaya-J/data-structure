@@ -5,14 +5,12 @@ import java.util.Scanner;
 
 public class task03 {
 
-    // Recursive Fibonacci method (using long is okay for small n)
     public static long fibonacci(int n) {
         if (n == 0) return 0;
         if (n == 1) return 1;
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
-    // Factorial method using BigInteger to handle big results
     public static BigInteger factorial(BigInteger num) {
         if (num.equals(BigInteger.ZERO) || num.equals(BigInteger.ONE)) {
             return BigInteger.ONE;
