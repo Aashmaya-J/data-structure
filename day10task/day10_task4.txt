@@ -1,0 +1,32 @@
+CREATE DATABASE ADDON;
+USE ADDON;
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100),
+    marks INT,
+    department VARCHAR(50),
+    section CHAR(1)
+);
+
+INSERT INTO students (name, marks, department, section) VALUES
+('Aashu', 81, 'Computer Science', 'A'),
+('Buvi', 36, 'Mechanical', 'B'),
+('Cheta', 71, 'Electrical', 'A'),
+('Darun', 57, 'Civil', 'C'),
+('Eni', 62, 'Electronics', 'B');
+
+SELECT * FROM students;
+
+SELECT * FROM students
+WHERE marks < 60;
+
+ALTER TABLE students
+ADD COLUMN gender VARCHAR(10);
+
+ALTER TABLE students
+DROP COLUMN section;
+
+TRUNCATE TABLE students;
+
+DROP DATABASE ADDON;
